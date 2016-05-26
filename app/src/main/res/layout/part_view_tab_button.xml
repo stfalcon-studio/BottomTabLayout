@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="56dp"
+    android:background="@color/gray1"
+    android:gravity="center"
+
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/bubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/bubble_circle"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textAppearance="@style/TextWhite12"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:background="@null"
+        android:drawableTop="@drawable/ic_nav_profile"
+        android:gravity="bottom|center_horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="8dp"
+        android:text="Профиль"
+        android:textAppearance="@style/TextGray12"
+        android:textColor="@drawable/tab_button_text_selector" />
+
+
+</RelativeLayout>
