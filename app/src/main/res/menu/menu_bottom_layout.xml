@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_button1"
+        android:icon="@drawable/tab_button1_selector"
+        android:title="Button1" />
+
+    <item
+        android:id="@+id/menu_button2"
+        android:icon="@drawable/tab_button1_selector"
+        android:title="Button2" />
+
+    <item
+        android:id="@+id/menu_button3"
+        android:icon="@drawable/tab_button1_selector"
+        android:title="Button3" />
+
+    <item
+        android:id="@+id/menu_button4"
+        android:icon="@drawable/tab_button1_selector"
+        android:title="Button4" />
+
+    <item
+        android:id="@+id/menu_button5"
+        android:icon="@drawable/tab_button1_selector"
+        android:title="Button5" />
+</menu>

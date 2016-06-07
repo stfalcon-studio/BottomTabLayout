@@ -2,6 +2,7 @@ package com.stfalcon.bottomtablayout;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.StyleRes;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,13 +10,14 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.stfalcon.buttontablayout.R;
+
 /**
  * Created by Anton Bevza on 5/5/16.
  */
 public class TabButton extends RelativeLayout {
     private Button button;
     private TextView tvBubble;
-
     private ClickListener listener;
 
 
@@ -64,6 +66,10 @@ public class TabButton extends RelativeLayout {
                 }
             }
         });
+    }
+
+    public void setButtonTextStyle(@StyleRes int res) {
+        button.setTextAppearance(getContext(), res);
     }
 
     public interface ClickListener {

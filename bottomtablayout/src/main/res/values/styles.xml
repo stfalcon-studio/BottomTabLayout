@@ -8,9 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="TextGray16" parent="android:Widget.Button">
+    <style name="TextGray12">
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@drawable/tab_button_text_selector</item>
+        <item name="android:textColor">@color/dark</item>
+    </style>
+
+    <style name="TextWhite12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>

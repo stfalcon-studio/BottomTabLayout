@@ -1,9 +1,9 @@
 package com.stfalcon.bottomtablayout;
 
-import android.app.Activity;
 import android.content.Context;
 import android.databinding.BindingAdapter;
 import android.support.annotation.MenuRes;
+import android.support.annotation.StyleRes;
 import android.support.v7.widget.PopupMenu;
 import android.util.AttributeSet;
 import android.view.Menu;
@@ -16,9 +16,9 @@ import java.util.ArrayList;
  * Created by Anton Bevza on 5/5/16.
  */
 public class BottomTabLayout extends LinearLayout {
-    private Activity activity;
     private ArrayList<TabButton> buttons = new ArrayList<>();
     private OnItemSelectedListener listener;
+    private @StyleRes int buttonTextStyle;
     private int selectedId;
 
     public BottomTabLayout(Context context, AttributeSet attrs) {
@@ -26,20 +26,17 @@ public class BottomTabLayout extends LinearLayout {
         setOrientation(HORIZONTAL);
     }
 
-    public void setActivity(Activity activity) {
-        this.activity = activity;
-    }
-
     public void setItems(@MenuRes int res) {
         PopupMenu p = new PopupMenu(getContext(), null);
         Menu menu = p.getMenu();
-        activity.getMenuInflater().inflate(res, menu);
+        p.getMenuInflater().inflate(res, menu);
         setWeightSum(menu.size());
         for (int i = 0; i < menu.size(); i++) {
             final TabButton tabButton = new TabButton(getContext());
             tabButton.setText(menu.getItem(i).getTitle().toString());
             tabButton.setIcon(menu.getItem(i).getIcon());
             tabButton.setTag(menu.getItem(i).getItemId());
+            tabButton.setButtonTextStyle(buttonTextStyle);
             LayoutParams params = new LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1);
             tabButton.setLayoutParams(params);
             buttons.add(tabButton);
@@ -67,13 +64,21 @@ public class BottomTabLayout extends LinearLayout {
         }
     }
 
-    public void setListener(OnItemSelectedListener listener) {
-        this.listener = listener;
+    public void setSelectedTab(int tabId) {
+        if (tabId != 0) {
+            selectTab(tabId);
+        }
     }
 
-    @BindingAdapter("app:activity")
-    public static void setActivity(BottomTabLayout bottomTabLayout, Activity activity) {
-        bottomTabLayout.setActivity(activity);
+    public void setButtonTextStyle(@StyleRes int res) {
+        if (buttons.size() > 0) {
+            throw new IllegalStateException("Call this before setItem()");
+        }
+        buttonTextStyle = res;
+    }
+
+    public void setListener(OnItemSelectedListener listener) {
+        this.listener = listener;
     }
 
     @BindingAdapter("app:items")
@@ -88,9 +93,12 @@ public class BottomTabLayout extends LinearLayout {
 
     @BindingAdapter("app:selectedTab")
     public static void bindSelectedTab(BottomTabLayout bottomTabLayout, int id) {
-        if (id != 0) {
-            bottomTabLayout.selectTab(id);
-        }
+        bottomTabLayout.setSelectedTab(id);
+    }
+
+    @BindingAdapter("app:buttonTextStyle")
+    public static void bindButtonTextStyle(BottomTabLayout bottomTabLayout, @StyleRes int res) {
+        bottomTabLayout.setButtonTextStyle(res);
     }
 
     public interface OnItemSelectedListener {
