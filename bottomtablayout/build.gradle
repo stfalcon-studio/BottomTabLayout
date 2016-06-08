@@ -12,8 +12,8 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 1
-        versionName "0.1"
+        versionCode 3
+        versionName "0.1.2"
     }
     buildTypes {
         release {
@@ -27,10 +27,10 @@ android {
 publish {
     groupId = 'com.github.stfalcon'
     artifactId = 'bottomtablayout'
-    publishVersion = '0.1'
+    publishVersion = '0.1.2'
     desc = 'Simple library for android Bottom tab layout view'
     licences = ['Apache-2.0']
-    website = 'https://github.com/bevzaanton/SimpleBottomTabLayout'
+    website = 'https://github.com/stfalcon-studio/BottomTabLayout'
 }
 
 dependencies {

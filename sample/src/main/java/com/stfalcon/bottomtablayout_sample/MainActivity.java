@@ -1,10 +1,9 @@
 package com.stfalcon.bottomtablayout_sample;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 
 import com.stfalcon.bottomtablayout.BottomTabLayout;
 
@@ -16,20 +15,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        container = R.id.container;
 
+        container = R.id.container; //Container for fragments
+
+        //Setup button tab layout
         bottomTabLayout = (BottomTabLayout) findViewById(R.id.bottomTabLayout);
+        //set button text style
         bottomTabLayout.setButtonTextStyle(R.style.TextGray16);
+        // set buttons from menu resource
         bottomTabLayout.setItems(R.menu.menu_bottom_layout);
+        //set on selected tab listener.
         bottomTabLayout.setListener(new BottomTabLayout.OnItemSelectedListener() {
             @Override
             public void onItemSelected(int id) {
                 switchFragment(id);
             }
         });
+        //set button that will be select on start activity
         bottomTabLayout.setSelectedTab(R.id.menu_button1);
     }
 
+    /**
+     * Show fragment in container
+     * @param id Menu item res id
+     */
     public void switchFragment(int id) {
         Fragment fragment = null;
         switch (id) {

@@ -17,8 +17,9 @@ import com.stfalcon.buttontablayout.R;
  */
 public class TabButton extends RelativeLayout {
     private Button button;
-    private TextView tvBubble;
     private ClickListener listener;
+    //Text view for show bubble like unread massage
+    private TextView tvBubble;
 
 
     public TabButton(Context context) {
@@ -31,6 +32,9 @@ public class TabButton extends RelativeLayout {
         init();
     }
 
+    /**
+     * Initialize tab button
+     */
     private void init() {
         LayoutInflater inflater = (LayoutInflater) getContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -39,23 +43,49 @@ public class TabButton extends RelativeLayout {
         tvBubble = (TextView) v.findViewById(R.id.bubble);
     }
 
+    /**
+     * Set button icon. Icon show as drawable top
+     *
+     * @param drawable drawable
+     */
     public void setIcon(Drawable drawable) {
         button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
     }
 
+    /**
+     * Set title text
+     *
+     * @param title title
+     */
     public void setText(String title) {
         button.setText(title);
     }
 
+    /**
+     * Text view for show bubble like unread massage
+     *
+     * @param count count of unread massages
+     */
     public void setUnreadCount(int count) {
         tvBubble.setText("" + count);
         tvBubble.setVisibility(count > 0 ? VISIBLE : GONE);
     }
 
+
+    /**
+     * Set selected button
+     *
+     * @param selected value
+     */
     public void setSelected(boolean selected) {
         button.setSelected(selected);
     }
 
+    /**
+     * Set button click listener
+     *
+     * @param clickListener ClickListener interface
+     */
     public void setListener(ClickListener clickListener) {
         listener = clickListener;
         button.setOnClickListener(new OnClickListener() {
@@ -68,10 +98,18 @@ public class TabButton extends RelativeLayout {
         });
     }
 
+    /**
+     * Set button text style
+     *
+     * @param res Style res id
+     */
     public void setButtonTextStyle(@StyleRes int res) {
         button.setTextAppearance(getContext(), res);
     }
 
+    /**
+     * Interface for click listener
+     */
     public interface ClickListener {
         void onClick();
     }
