@@ -168,6 +168,8 @@ For example we can switch fragments in container:
     }
 ```
 
+Look [Sample projects] [sample] for more information
+
 ### License 
 
 Copyright 2016 stfalcon.com
@@ -183,3 +185,6 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+
+[sample]: <https://github.com/stfalcon-studio/BottomTabLayout/tree/master/sample>
