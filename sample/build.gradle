@@ -3,6 +3,9 @@ apply plugin: 'maven'
 
 repositories {
     mavenCentral()
+    maven {
+        url  "http://dl.bintray.com/bevzaanton/maven"
+    }
 }
 
 android {
@@ -33,6 +36,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
-    compile 'com.stfalcon:bottomtablayout:0.1@aar'
-
+    compile 'com.github.stfalcon:bottomtablayout:0.1'
 }
