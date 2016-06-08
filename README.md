@@ -33,7 +33,7 @@ Create text selector:
 </selector>
 ```
 
-Create drawable selector for iche button icon:
+Create drawable selector for each button icon:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
