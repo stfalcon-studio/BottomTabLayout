@@ -1,6 +1,6 @@
 # BottomTabLayout
 
-![alt tag](http://i.imgur.com/PJ58P2z.gif)
+![alt tag](http://i.imgur.com/V7wwa9U.gif)
 
 Simple library for bottom tab layout
 
@@ -16,7 +16,7 @@ or Maven:
 <dependency>
   <groupId>com.github.stfalcon</groupId>
   <artifactId>bottomtablayout</artifactId>
-  <version>0.1.2</version>
+  <version>0.2</version>
   <type>pom</type>
 </dependency>
 ```
@@ -132,8 +132,17 @@ In activity class:
         });
         //set button that will be select on start activity
         bottomTabLayout.setSelectedTab(R.id.menu_button1);
+        //enable indicator
+        bottomTabLayout.setIndicatorVisible(true);
+        //indicator height
+        bottomTabLayout.setIndicatorHeight(getResources().getDimension(R.dimen.indicator_height));
+        //indicator color
+        bottomTabLayout.setIndicatorColor(R.color.green);
+        //indicator line color
+        bottomTabLayout.setIndicatorLineColor(R.color.dark);
     }
 ```
+
 For example we can switch fragments in container:
 
 ```java
