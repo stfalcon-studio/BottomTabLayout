@@ -101,7 +101,7 @@ Add bottomtablayout view to activity layout:
     <com.stfalcon.bottomtablayout.BottomTabLayout
         android:id="@+id/bottomTabLayout"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/dark" />
 
