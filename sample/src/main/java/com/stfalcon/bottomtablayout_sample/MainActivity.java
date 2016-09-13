@@ -33,10 +33,19 @@ public class MainActivity extends AppCompatActivity {
         });
         //set button that will be select on start activity
         bottomTabLayout.setSelectedTab(R.id.menu_button1);
+        //enable indicator
+        bottomTabLayout.setIndicatorVisible(true);
+        //indicator height
+        bottomTabLayout.setIndicatorHeight(getResources().getDimension(R.dimen.indicator_height));
+        //indicator color
+        bottomTabLayout.setIndicatorColor(R.color.green);
+        //indicator line color
+        bottomTabLayout.setIndicatorLineColor(R.color.dark);
     }
 
     /**
      * Show fragment in container
+     *
      * @param id Menu item res id
      */
     public void switchFragment(int id) {

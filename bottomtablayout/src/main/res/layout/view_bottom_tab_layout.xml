@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/group_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content"
+        android:visibility="visible">
+
+        <View
+            android:id="@+id/indicator_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/dark" />
+
+        <View
+            android:id="@+id/indicator"
+            android:layout_width="100dp"
+            android:layout_height="3dp"
+            android:background="@color/green" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
