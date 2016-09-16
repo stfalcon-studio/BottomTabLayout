@@ -65,7 +65,11 @@ public class BottomTabLayout extends RelativeLayout {
         content.setWeightSum(menu.size());
         for (int i = 0; i < menu.size(); i++) {
             final TabButton tabButton = new TabButton(getContext());
-            tabButton.setText(menu.getItem(i).getTitle().toString());
+            if (menu.getItem(i).getTitle() != null) {
+                tabButton.setText(menu.getItem(i).getTitle().toString());
+            } else {
+                tabButton.setText(null);
+            }
             tabButton.setIcon(menu.getItem(i).getIcon());
             tabButton.setTag(menu.getItem(i).getItemId());
             tabButton.setButtonTextStyle(buttonTextStyle);

@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,7 +17,8 @@ import com.stfalcon.buttontablayout.R;
  * Created by Anton Bevza on 5/5/16.
  */
 public class TabButton extends RelativeLayout {
-    private Button button;
+    private TextView textView;
+    private ImageView imageView;
     private ClickListener listener;
     //Text view for show bubble like unread massage
     private TextView tvBubble;
@@ -39,7 +41,8 @@ public class TabButton extends RelativeLayout {
         LayoutInflater inflater = (LayoutInflater) getContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.part_view_tab_button, this, true);
-        button = (Button) v.findViewById(R.id.button);
+        imageView = (ImageView) v.findViewById(R.id.icon);
+        textView = (TextView) v.findViewById(R.id.text);
         tvBubble = (TextView) v.findViewById(R.id.bubble);
     }
 
@@ -49,7 +52,7 @@ public class TabButton extends RelativeLayout {
      * @param drawable drawable
      */
     public void setIcon(Drawable drawable) {
-        button.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+        imageView.setImageDrawable(drawable);
     }
 
     /**
@@ -58,7 +61,11 @@ public class TabButton extends RelativeLayout {
      * @param title title
      */
     public void setText(String title) {
-        button.setText(title);
+        if (title != null && title.length() > 0) {
+            textView.setText(title);
+        } else {
+            textView.setVisibility(GONE);
+        }
     }
 
     /**
@@ -78,7 +85,8 @@ public class TabButton extends RelativeLayout {
      * @param selected value
      */
     public void setSelected(boolean selected) {
-        button.setSelected(selected);
+        imageView.setSelected(selected);
+        textView.setSelected(selected);
     }
 
     /**
@@ -88,7 +96,7 @@ public class TabButton extends RelativeLayout {
      */
     public void setListener(ClickListener clickListener) {
         listener = clickListener;
-        button.setOnClickListener(new OnClickListener() {
+        setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (listener != null) {
@@ -104,7 +112,7 @@ public class TabButton extends RelativeLayout {
      * @param res Style res id
      */
     public void setButtonTextStyle(@StyleRes int res) {
-        button.setTextAppearance(getContext(), res);
+        textView.setTextAppearance(getContext(), res);
     }
 
     /**

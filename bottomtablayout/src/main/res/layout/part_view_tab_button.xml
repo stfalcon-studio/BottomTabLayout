@@ -19,19 +19,31 @@
         android:textAppearance="@style/TextWhite12"
         android:visibility="gone" />
 
-    <Button
-        android:id="@+id/button"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:background="@null"
-        android:gravity="bottom|center_horizontal"
-        android:paddingBottom="5dp"
-        android:paddingTop="8dp"
-        android:drawableTop="@android:drawable/ic_btn_speak_now"
-        android:text="Title"
-        android:textAppearance="@style/TextGray12"
-        android:textColor="@drawable/tab_button_text_selector" />
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_btn_speak_now" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@null"
+            android:clickable="false"
+            android:gravity="bottom|center_horizontal"
+            android:text="Title"
+            android:textAppearance="@style/TextGray12"
+            android:textColor="@drawable/tab_button_text_selector" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>
