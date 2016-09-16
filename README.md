@@ -9,14 +9,14 @@ Simple library for bottom tab layout
 Download via Gradle:
 
 ```gradle
-compile 'com.github.stfalcon:bottomtablayout:0.2'
+compile 'com.github.stfalcon:bottomtablayout:0.2.2'
 ```
 or Maven:
 ```xml
 <dependency>
   <groupId>com.github.stfalcon</groupId>
   <artifactId>bottomtablayout</artifactId>
-  <version>0.2</version>
+  <version>0.2.2</version>
   <type>pom</type>
 </dependency>
 ```
@@ -101,7 +101,7 @@ Add bottomtablayout view to activity layout:
     <com.stfalcon.bottomtablayout.BottomTabLayout
         android:id="@+id/bottomTabLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="58dp"
         android:layout_alignParentBottom="true"
         android:background="@color/dark" />
 
