@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         bottomTabLayout.setIndicatorColor(R.color.green);
         //indicator line color
         bottomTabLayout.setIndicatorLineColor(R.color.dark);
+        bottomTabLayout.setSelectedTab(R.id.menu_button5);
     }
 
     /**

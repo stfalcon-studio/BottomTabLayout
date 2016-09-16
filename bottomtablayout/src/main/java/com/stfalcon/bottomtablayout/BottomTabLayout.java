@@ -103,6 +103,10 @@ public class BottomTabLayout extends RelativeLayout {
      * @param id Menu item res id
      */
     public void selectTab(int id) {
+        selectTab(id, true);
+    }
+
+    private void selectTab(int id, boolean animated) {
         if (selectedId != id) {
             for (TabButton b : buttons) {
                 b.setSelected(id == (int) b.getTag());
@@ -111,7 +115,11 @@ public class BottomTabLayout extends RelativeLayout {
             if (listener != null) {
                 listener.onItemSelected(id);
             }
-            updateIndicator();
+            if (animated) {
+                updateIndicator();
+            } else {
+                updateIndicatorWithoutAnimation();
+            }
         }
     }
 
@@ -123,7 +131,7 @@ public class BottomTabLayout extends RelativeLayout {
      */
     public void setSelectedTab(int tabId) {
         if (tabId != 0) {
-            selectTab(tabId);
+            selectTab(tabId, false);
         }
     }
 
@@ -184,6 +192,20 @@ public class BottomTabLayout extends RelativeLayout {
         ObjectAnimator animX = ObjectAnimator.ofFloat(indicator, "x", buttons.get(getCurrentPosition()).getX() + content.getX());
         animX.setDuration(200);
         animX.start();
+    }
+
+    /**
+     * Update indicator position
+     */
+    private void updateIndicatorWithoutAnimation() {
+        if (buttons.size() > 0) {
+            buttons.get(getCurrentPosition()).post(new Runnable() {
+                @Override
+                public void run() {
+                    indicator.setX(buttons.get(getCurrentPosition()).getX() + content.getX());
+                }
+            });
+        }
     }
 
     /**
