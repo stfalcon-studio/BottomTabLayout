@@ -61,6 +61,7 @@ public class BottomTabLayout extends RelativeLayout {
         PopupMenu p = new PopupMenu(getContext(), null);
         Menu menu = p.getMenu();
         p.getMenuInflater().inflate(res, menu);
+        content.removeAllViews();
 
         content.setWeightSum(menu.size());
         for (int i = 0; i < menu.size(); i++) {
