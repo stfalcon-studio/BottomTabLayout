@@ -137,15 +137,17 @@ public class BottomTabLayout extends RelativeLayout {
     }
 
     /**
-     * Set text button style. Must be call before setItems() method
+     * Set text button style.
      *
      * @param res Style res id
      */
     public void setButtonTextStyle(@StyleRes int res) {
-        if (buttons.size() > 0) {
-            throw new IllegalStateException("Call this before setItem()");
-        }
         buttonTextStyle = res;
+        if (buttons.size() > 0) {
+            for (int i = 0; i < buttons.size(); i++) {
+                buttons.get(i).setButtonTextStyle(buttonTextStyle);
+            }
+        }
     }
 
     /**

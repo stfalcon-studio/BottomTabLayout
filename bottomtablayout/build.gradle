@@ -13,7 +13,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 4
-        versionName "0.2.2"
+        versionName "0.2.4"
     }
     buildTypes {
         release {
@@ -27,7 +27,7 @@ android {
 publish {
     groupId = 'com.github.stfalcon'
     artifactId = 'bottomtablayout'
-    publishVersion = '0.2.3'
+    publishVersion = '0.2.4'
     desc = 'Simple library for android Bottom tab layout view'
     licences = ['Apache-2.0']
     website = 'https://github.com/stfalcon-studio/BottomTabLayout'

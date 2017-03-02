@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.stfalcon.bottomtablayout.BottomTabLayout;
 
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         //Setup button tab layout
         bottomTabLayout = (BottomTabLayout) findViewById(R.id.bottomTabLayout);
         //set button text style
-        bottomTabLayout.setButtonTextStyle(R.style.TextGray16);
+        bottomTabLayout.setButtonTextStyle(R.style.TextGray12);
         // set buttons from menu resource
         bottomTabLayout.setItems(R.menu.menu_bottom_layout);
         //set on selected tab listener.
