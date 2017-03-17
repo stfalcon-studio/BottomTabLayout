@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bubble_padding_top">2dp</dimen>
+    <dimen name="bubble_padding_right">2dp</dimen>
+</resources>

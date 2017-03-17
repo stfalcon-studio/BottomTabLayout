@@ -2,11 +2,12 @@ package com.stfalcon.bottomtablayout;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.support.annotation.StyleRes;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ public class TabButton extends RelativeLayout {
     private ClickListener listener;
     //Text view for show bubble like unread massage
     private TextView tvBubble;
+    private View containerBubble;
 
 
     public TabButton(Context context) {
@@ -44,6 +46,7 @@ public class TabButton extends RelativeLayout {
         imageView = (ImageView) v.findViewById(R.id.icon);
         textView = (TextView) v.findViewById(R.id.text);
         tvBubble = (TextView) v.findViewById(R.id.bubble);
+        containerBubble = v.findViewById(R.id.containerBubble);
     }
 
     /**
@@ -112,7 +115,47 @@ public class TabButton extends RelativeLayout {
      * @param res Style res id
      */
     public void setButtonTextStyle(@StyleRes int res) {
-        textView.setTextAppearance(getContext(), res);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            textView.setTextAppearance(res);
+        } else {
+            textView.setTextAppearance(getContext(), res);
+        }
+    }
+
+
+    /**
+     * Set unread bubble color
+     *
+     * @param color
+     */
+    public void setBubbleColor(int color) {
+        GradientDrawable bgShape = (GradientDrawable) tvBubble.getBackground().getCurrent();
+        bgShape.setColor(color);
+    }
+
+    /**
+     * Set unread bubble padding
+     *
+     * @param left   px
+     * @param top    px
+     * @param right  px
+     * @param bottom px
+     */
+    public void setBubblePadding(int left, int top, int right, int bottom) {
+        containerBubble.setPadding(left, top, right, bottom);
+    }
+
+    /**
+     * Set unread bubble text style
+     *
+     * @param res Style res id
+     */
+    public void setBubbleTextStyle(@StyleRes int res) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            tvBubble.setTextAppearance(res);
+        } else {
+            tvBubble.setTextAppearance(getContext(), res);
+        }
     }
 
     /**

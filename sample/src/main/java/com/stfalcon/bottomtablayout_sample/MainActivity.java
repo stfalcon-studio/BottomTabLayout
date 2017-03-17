@@ -3,8 +3,8 @@ package com.stfalcon.bottomtablayout_sample;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 import com.stfalcon.bottomtablayout.BottomTabLayout;
 
@@ -43,6 +43,15 @@ public class MainActivity extends AppCompatActivity {
         //indicator line color
         bottomTabLayout.setIndicatorLineColor(R.color.dark);
         bottomTabLayout.setSelectedTab(R.id.menu_button5);
+
+        //setup bubble style
+        bottomTabLayout.setTabBubbleColor(ContextCompat.getColor(this, R.color.blue));
+        bottomTabLayout.setTabBubblePadding(0, 0, 0, 0);
+        bottomTabLayout.setTabBubbleTextStyle(R.style.TextWhite12);
+
+        //show bubble
+        bottomTabLayout.showTabBubbleCount(R.id.menu_button1, 3);
+
     }
 
     /**

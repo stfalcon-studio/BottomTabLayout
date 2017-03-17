@@ -6,9 +6,9 @@ import android.databinding.BindingAdapter;
 import android.support.annotation.ColorRes;
 import android.support.annotation.MenuRes;
 import android.support.annotation.StyleRes;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.PopupMenu;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -26,12 +26,19 @@ import java.util.ArrayList;
 public class BottomTabLayout extends RelativeLayout {
     private ArrayList<TabButton> buttons = new ArrayList<>();
     private OnItemSelectedListener listener;
-    private int buttonTextStyle;
     private int selectedId;
     private ViewGroup indicatorGroup;
     private View indicator;
     private View indicatorLine;
     private LinearLayout content;
+
+    private int buttonTextStyle;
+    private int bubbleColor = ContextCompat.getColor(getContext(), R.color.blue);
+    private int bubblePaddingLeft;
+    private int bubblePaddingRight = getResources().getDimensionPixelSize(R.dimen.bubble_padding_right);
+    private int bubblePaddingTop = getResources().getDimensionPixelSize(R.dimen.bubble_padding_top);
+    private int bubblePaddingBottom;
+    private int bubbleTextStyle;
 
     public BottomTabLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -74,6 +81,12 @@ public class BottomTabLayout extends RelativeLayout {
             tabButton.setIcon(menu.getItem(i).getIcon());
             tabButton.setTag(menu.getItem(i).getItemId());
             tabButton.setButtonTextStyle(buttonTextStyle);
+
+            //setup tab bubble
+            tabButton.setBubbleColor(bubbleColor);
+            tabButton.setBubbleTextStyle(bubbleTextStyle);
+            tabButton.setBubblePadding(bubblePaddingLeft, bubblePaddingTop, bubblePaddingRight, bubblePaddingBottom);
+
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1);
             tabButton.setLayoutParams(params);
             buttons.add(tabButton);
@@ -147,6 +160,57 @@ public class BottomTabLayout extends RelativeLayout {
             for (int i = 0; i < buttons.size(); i++) {
                 buttons.get(i).setButtonTextStyle(buttonTextStyle);
             }
+        }
+    }
+
+    /**
+     * Show bubble with count on tab with tabId.
+     *
+     * @param tabId Menu item res id
+     * @param count count. If count==0 bubble will be hide
+     */
+    public void showTabBubbleCount(int tabId, int count) {
+        for (TabButton b : buttons) {
+            if (tabId == (int) b.getTag()) {
+                b.setUnreadCount(count);
+            }
+        }
+    }
+
+    /**
+     * Set tab bubble color
+     *
+     * @param color rgb
+     */
+    public void setTabBubbleColor(int color) {
+        bubbleColor = color;
+        for (TabButton b : buttons) {
+            b.setBubbleColor(color);
+        }
+    }
+
+    /**
+     * Set tab bubble padding
+     *
+     * @param left   px
+     * @param top    px
+     * @param right  px
+     * @param bottom px
+     */
+    public void setTabBubblePadding(int left, int top, int right, int bottom) {
+        bubblePaddingLeft = left;
+        bubblePaddingTop = top;
+        bubblePaddingRight = right;
+        bubblePaddingBottom = bottom;
+        for (TabButton b : buttons) {
+            b.setBubblePadding(left, top, right, bottom);
+        }
+    }
+
+    public void setTabBubbleTextStyle(@StyleRes int res) {
+        bubbleTextStyle = res;
+        for (TabButton b : buttons) {
+            b.setBubbleTextStyle(res);
         }
     }
 
