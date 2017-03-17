@@ -9,14 +9,14 @@ Simple library for bottom tab layout
 Download via Gradle:
 
 ```gradle
-compile 'com.github.stfalcon:bottomtablayout:0.2.4'
+compile 'com.github.stfalcon:bottomtablayout:0.3'
 ```
 or Maven:
 ```xml
 <dependency>
   <groupId>com.github.stfalcon</groupId>
   <artifactId>bottomtablayout</artifactId>
-  <version>0.2.4</version>
+  <version>0.3</version>
   <type>pom</type>
 </dependency>
 ```
@@ -175,6 +175,17 @@ For example we can switch fragments in container:
             transaction.commit();
         }
     }
+```
+
+For showing bubble count on tab. 
+```java
+bottomTabLayout.showTabBubbleCount(R.id.menu_button1, 3);
+```
+You can style bubble with methods:
+```java
+bottomTabLayout.setTabBubbleColor(ContextCompat.getColor(this, R.color.blue));
+bottomTabLayout.setTabBubblePadding(0, 0, 0, 0);
+bottomTabLayout.setTabBubbleTextStyle(R.style.TextWhite12);
 ```
 
 Look [Sample projects] [sample] for more information
